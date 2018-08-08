@@ -14,7 +14,7 @@ import Spinner from '../Spinner';
 
 const styles = {
   propContainer: {
-    width: 200,
+    width: 100,
     overflow: 'hidden',
     margin: '20px auto 0',
   },

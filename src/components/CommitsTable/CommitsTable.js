@@ -1,17 +1,13 @@
 import React from 'react';
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table';
+import {List, ListItem} from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import Avatar from 'material-ui/Avatar';
+import Subheader from 'material-ui/Subheader';
 import Spinner from '../Spinner';
 
 class CommitsTable extends React.Component {
   state = {
-    height: '300px',
+    height: '80%',
     rowIndex:''
   };
 
@@ -48,44 +44,28 @@ class CommitsTable extends React.Component {
     }else {
       if(this.props.commitsData.length > 0)
       {
-        table =<Table
-          height={this.state.height}
-          fixedHeader={true}
-          fixedFooter={true}
-          selectable={false}
-          // onRowSelection ={this.handleRepoSelectionChange.bind(this)}
-        >
-          <TableHeader
-            displaySelectAll={false}
-            adjustForCheckbox={false}
-            enableSelectAll={false}
-          >
-            <TableRow >
-              <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
-                List of {this.props.repoName} commits
-              </TableHeaderColumn>
-            </TableRow>
-            <TableRow>
-              <TableHeaderColumn tooltip="The ID of the repo">Commit Sha</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name of the repo">Developer</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The number repo of forks">Repo Forks</TableHeaderColumn>
-            </TableRow>
-          </TableHeader>
-          <TableBody
-            displayRowCheckbox={false}
-            deselectOnClickaway={false}
-            showRowHover={false}
-            stripedRows={true}
-          >
-            {this.props.commitsData.map( (row, index) => (
-              <TableRow selectable={true} key={index}>
-                <TableRowColumn>{row.sha}</TableRowColumn>
-                <TableRowColumn>{row.commit.author['name']}</TableRowColumn>
-                <TableRowColumn>{row.forks}</TableRowColumn>
-              </TableRow>
-              ))}
-          </TableBody>
-        </Table>
+        table = <List selectable= {false}
+          showRowHover={false}>
+          <Subheader>Recent Commits for {this.props.repoName}</Subheader>
+          {this.props.commitsData.map( (commit) => (
+            <div>
+              <ListItem
+                // leftIcon={<CommunicationCall color={indigo500} />}
+                // rightIcon={<CommunicationChatBubble />}
+                leftAvatar={<Avatar src={commit.author['avatar_url']} />}
+                primaryText={commit.commit['message']}
+                secondaryText={commit.commit.author['name']}
+              />
+              <Divider inset={true} />
+            </div>
+          ))}
+
+        </List>
+
+
+
+
+
       }
     }
     return (

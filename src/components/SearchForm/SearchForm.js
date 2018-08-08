@@ -21,8 +21,9 @@ const styles = {
 
   input: {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
+    // alignItems: 'center',
+    // justifyContent: 'center',
+
   }
 }
 class SearchForm extends React.Component {
@@ -46,7 +47,7 @@ class SearchForm extends React.Component {
           onChange={(event) => {this.props.handleOrganizationNameChange(event.target.value)}}
           hintText="Enter Organization Name"
         />
-
+        <br></br>
 
         <RaisedButton label="Search Repos" secondary={true} style={styles.button}
         onClick={() => this.props.getOrganizationReposData(this.props.organizationName)} />
