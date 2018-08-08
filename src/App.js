@@ -69,9 +69,11 @@ class App extends Component {
         <div style={[styles.main]}>
           <SearchForm {...this.props}/>
           <RepoTable {...this.props}/>
+
         </div>
         <Dock position='right'  size = {sizeOfDock} isVisible={visible} zIndex={0} dimMode='none' dockStyle={{top: '8%'}}>
-          <div style={[styles.dockContent]}
+          <div style={[styles.dockContent]}>
+              
             <CommitsTable {...this.props}/>
           </div>
         </Dock>
