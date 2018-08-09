@@ -2,26 +2,12 @@ import React from 'react';
 import {
   Table,
   TableBody,
-  TableFooter,
   TableHeader,
   TableHeaderColumn,
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
 import Spinner from '../Spinner';
-
-const styles = {
-  propContainer: {
-    width: 100,
-    overflow: 'hidden',
-    margin: '20px auto 0',
-  },
-  propToggleHeader: {
-    margin: '20px auto 10px',
-  },
-};
 
 class RepoTable extends React.Component {
   state = {
@@ -40,8 +26,9 @@ class RepoTable extends React.Component {
   };
 
   handleRepoSelectionChange(event) {
+    this.props.onRestartRepoCommitsData();
     this.props.handleRepoNameChange(this.props.repoData[event[0]].name);
-    // this.props.getRepoCommitsData(this.props.organizationName,this.props.repoName)
+    // this.props.getRepoCommitsData(this.props.organizationName,this.props.repoData[event[0]].name)
   }
 
   render() {
@@ -86,8 +73,8 @@ class RepoTable extends React.Component {
             </TableRow>
           </TableHeader>
           <TableBody
-            displayRowCheckbox={true}
-            deselectOnClickaway={false}
+            displayRowCheckbox={false}
+            deselectOnClickaway={true}
             showRowHover={true}
             stripedRows={true}
           >

@@ -25,10 +25,10 @@ function setRepoCommitsData(state, reposData) {
 }
 
 function onRestartRepoCommitsData(state) {
-  let repoData = state.commitsData;
-  repoData = repoData.slice(0,0);
+  let theData = state.commitsData;
+  theData = theData.slice(0,0);
   return updateObject(state, {
-    'commitsData': repoData,
+    'commitsData': theData,
     'loadingCommits': false,
     'errorCommits':false });
 }

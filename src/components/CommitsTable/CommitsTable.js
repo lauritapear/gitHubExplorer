@@ -22,8 +22,9 @@ class CommitsTable extends React.Component {
   };
 
   handleRepoSelectionChange(event) {
+    this.props.onRestartRepoCommitsData();
     this.props.handleRepoNameChange(this.props.repoData[event[0]].name);
-    this.props.getRepoCommitsData(this.props.organizationName,this.props.repoName)
+    // this.props.getRepoCommitsData(this.props.organizationName,this.props.repoName)
   }
 
   render() {
@@ -44,20 +45,17 @@ class CommitsTable extends React.Component {
     }else {
       if(this.props.commitsData.length > 0)
       {
-        table = <List selectable= {false}
-          showRowHover={false}>
+        table = <List >
           <Subheader>Recent Commits for {this.props.repoName}</Subheader>
-          {this.props.commitsData.map( (commit) => (
-            <div>
+          <Divider inset={true} />
+          {this.props.commitsData.map((commit, index)=> (
               <ListItem
-                // leftIcon={<CommunicationCall color={indigo500} />}
-                // rightIcon={<CommunicationChatBubble />}
-                leftAvatar={<Avatar src={commit.author['avatar_url']} />}
+                key={index}
+                // leftAvatar={<Avatar src={commit.author['avatar_url']} />}
                 primaryText={commit.commit['message']}
                 secondaryText={commit.commit.author['name']}
               />
-              <Divider inset={true} />
-            </div>
+
           ))}
 
         </List>

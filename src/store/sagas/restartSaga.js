@@ -5,5 +5,7 @@ export function * handleRestartSaga()
 {
   yield put(actions.onRestartForm());
   yield put(actions.onRestartOrganizationData());
+  yield put(actions.onRestartRepoCommitsData());
+
   // yield put(actions.onRestartPolyline());
 }
