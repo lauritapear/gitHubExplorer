@@ -6,3 +6,5 @@ To run Application, first download/clone/fork repo and then run the following co
 - ```npm install```
 - ```npm start```
 
+To run Tests, please type the following command:
+- ```npm test```
