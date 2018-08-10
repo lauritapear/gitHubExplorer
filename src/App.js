@@ -22,8 +22,6 @@ const styles = {
     paddingTop: '30vh'
   },
   dockContent: {
-    // width: '150%',
-    // height: '150%',
     top: '10px',
     right: '10px',
     left: '50px',
@@ -56,11 +54,6 @@ const styles = {
 }
 
 class App extends Component {
-  handleOnVisible()
-  {
-    console.log("well hello");
-  }
-
   render() {
     let visible = false;
     let sizeOfDock= 0.4;
@@ -78,7 +71,6 @@ class App extends Component {
         </div>
         <Dock position='right'  size = {sizeOfDock} isVisible={visible}
           zIndex={0} dimMode='none' dockStyle={{top: '8%'}}
-          onVisibleChange={this.handleOnVisible()}
           >
           <div style={[styles.dockContent]}>
 

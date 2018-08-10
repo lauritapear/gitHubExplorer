@@ -15,16 +15,6 @@ class RepoTable extends React.Component {
     rowIndex:''
   };
 
-  handleToggle = (event, toggled) => {
-    this.setState({
-      [event.target.name]: toggled,
-    });
-  };
-
-  handleChange = (event) => {
-    this.setState({height: event.target.value});
-  };
-
   handleRepoSelectionChange(event) {
     this.props.onRestartRepoCommitsData();
     this.props.handleRepoNameChange(this.props.repoData[event[0]].name);
@@ -56,19 +46,15 @@ class RepoTable extends React.Component {
           selectable={true}
           onRowSelection ={this.handleRepoSelectionChange.bind(this)}
         >
-          <TableHeader
-            // displaySelectAll={false}
-            // adjustForCheckbox={true}
-            // enableSelectAll={false}
-          >
+          <TableHeader displaySelectAll={false}>
             <TableRow >
               <TableHeaderColumn colSpan="2" tooltip="Super Header" style={{textAlign: 'left'}}>
-                List of {this.props.organizationName} repos organized by # of Forks
+                List of {this.props.organizationName} repos organized by ascending number of Forks
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
               <TableHeaderColumn tooltip="The Name of the repo">Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The number repo of forks">Forks</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The number repo of forks"># Forks</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody

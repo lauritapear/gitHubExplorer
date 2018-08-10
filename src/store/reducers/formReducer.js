@@ -9,12 +9,10 @@ const initialState1 = {
 
 
 function handleOrganizationNameChange(state, name) {
-  console.log("HERE", name)
   return updateObject(state, {organizationName: name});
 }
 
 function handleRepoNameChange(state, name) {
-  console.log("HERE REPO", name)
   return updateObject(state, {repoName: name});
 }
 
@@ -26,7 +24,6 @@ function onRestartForm(state) {
   });
 }
 
-// function onSelectedRowChange()
 function onSearchClick(state) {
   return updateObject(state, {'showRepos': true});
 }

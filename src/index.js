@@ -11,11 +11,9 @@ import {watchOrganizationRepos} from './store/sagas'
 import {watchRestart} from './store/sagas'
 import {watchRepoCommits} from './store/sagas'
 import rootReducer from './store/reducers';
-// import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import App from "./App";
 
-// injectTapEventPlugin();
 const muiTheme = getMuiTheme({
   'palette': {
     'accent1Color': 'rgba(191, 54, 12, 0.8)',

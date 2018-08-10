@@ -10,17 +10,7 @@ class CommitsTable extends React.Component {
     height: '80%',
     rowIndex: ''
   };
-
-  handleToggle = (event, toggled) => {
-    this.setState({
-      [event.target.name]: toggled
-    });
-  };
-
-  handleChange = (event) => {
-    this.setState({height: event.target.value});
-  };
-
+  
   render() {
     let table = null;
 

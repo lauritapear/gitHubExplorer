@@ -18,12 +18,15 @@ function fetchOrganizationReposDataFailed(state) {
   });
 }
 
+function compareForks(a, b) {
+  return a.forks_count - b.forks_count;
+}
+
 function setOrganizationReposData(state, reposData) {
   let sortedData = reposData;
-  sortedData.sort(function(obj1, obj2) {
-	// Ascending: first age less than the previous
-	return obj1.forks - obj2.fork;
-});
+  console.log(reposData);
+  sortedData.sort(compareForks);
+  console.log(sortedData);
   return updateObject(state, {
     'repoData': sortedData,
     'loading': false});

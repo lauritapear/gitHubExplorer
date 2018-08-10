@@ -20,13 +20,11 @@ const styles = {
   },
 
   input: {
-    display: 'flex',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-
+    display: 'flex'
   }
 }
 class SearchForm extends React.Component {
+  
   handleSearchClick(orgName)
   {
     this.props.onRestartRepoCommitsData();
@@ -49,7 +47,6 @@ class SearchForm extends React.Component {
         </AppBar>
         <br></br>
         <TextField
-          // style={styles.input}
           value={this.props.organizationName}
           onChange={(event) => {this.props.handleOrganizationNameChange(event.target.value)}}
           hintText="Enter Organization Name"
@@ -57,12 +54,7 @@ class SearchForm extends React.Component {
 
         <RaisedButton label="Search Repos" secondary={true} style={styles.button}
           onClick ={()=>this.handleSearchClick(this.props.organizationName)}
-        // onClick={() => this.props.getOrganizationReposData(this.props.organizationName)}
       />
-        {/* <RaisedButton label="Search Commits" secondary={true} style={styles.button}
-        disabled={diableCommitsButton}
-        onClick={() => this.props.getRepoCommitsData(this.props.organizationName,this.props.repoName)}
-      /> */}
         <RaisedButton label="Restart" primary={true} style={styles.button}
           onClick={() => this.props.onRestartClick()} />
       </div>
