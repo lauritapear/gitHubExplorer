@@ -10,7 +10,7 @@ class CommitsTable extends React.Component {
     height: '80%',
     rowIndex: ''
   };
-  
+
   render() {
     let table = null;
 

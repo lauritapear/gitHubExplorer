@@ -3,10 +3,8 @@ import {updateObject} from '../../utils/utils';
 const initialState1 = {
   organizationName: '',
   repoName: '',
-  showRepos: false,
-  formHasBeenRestarted: false,
+  showRepos: false
 };
-
 
 function handleOrganizationNameChange(state, name) {
   return updateObject(state, {organizationName: name});
@@ -18,9 +16,9 @@ function handleRepoNameChange(state, name) {
 
 function onRestartForm(state) {
   return updateObject(state, {
-    'formHasBeenRestarted': true,
     'showRepos': false,
-    'organizationName': ''
+    'organizationName': '',
+    'repoName': '',
   });
 }
 

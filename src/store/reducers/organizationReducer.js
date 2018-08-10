@@ -24,9 +24,7 @@ function compareForks(a, b) {
 
 function setOrganizationReposData(state, reposData) {
   let sortedData = reposData;
-  console.log(reposData);
   sortedData.sort(compareForks);
-  console.log(sortedData);
   return updateObject(state, {
     'repoData': sortedData,
     'loading': false});

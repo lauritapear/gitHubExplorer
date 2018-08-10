@@ -42,12 +42,6 @@ class SearchForm extends React.Component {
   }
 
   render() {
-    let diableCommitsButton = true;
-    //Only allow users to Search commits if repos have been found
-    this.props.repoData.length >0
-      ? diableCommitsButton = true
-      : diableCommitsButton
-
     return (
       <div>
         <AppBar showMenuIconButton={false}
