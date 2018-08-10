@@ -65,7 +65,7 @@ class SearchForm extends React.Component {
         <RaisedButton label="Search Repos" secondary={true} style={styles.button}
           onClick ={()=>this.handleSearchClick(this.state.textFieldValue)}
       />
-        <RaisedButton label="Restart" primary={true} style={styles.button}
+        <RaisedButton label="Cancel" primary={true} style={styles.button}
           onClick={() => this.handleRestartClick()} />
       </div>
     )
