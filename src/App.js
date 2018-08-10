@@ -70,7 +70,7 @@ class App extends Component {
 
         </div>
         <Dock position='right'  size = {sizeOfDock} isVisible={visible}
-          zIndex={0} dimMode='none' dockStyle={{top: '8%'}}
+          zIndex={0} dimMode='none' dockStyle={{top: '15%'}}
           >
           <div style={[styles.dockContent]}>
 

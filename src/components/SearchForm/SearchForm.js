@@ -6,10 +6,8 @@ import {ToolbarTitle} from 'material-ui/Toolbar';
 
 const styles = {
 
-  title: {
+  bar: {
     display: 'flex',
-    color: "white",
-    fontSize: "22px",
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column'
@@ -19,17 +17,28 @@ const styles = {
     margin: 7,
   },
 
-  input: {
-    display: 'flex'
+  title: {
+    color: "white",
+    fontSize: "28px",
   }
 }
 class SearchForm extends React.Component {
-  
+  state = {
+    textFieldValue: ''
+  };
+
   handleSearchClick(orgName)
   {
     this.props.onRestartRepoCommitsData();
     this.props.onRestartOrganizationData();
+    this.props.handleOrganizationNameChange(this.state.textFieldValue);
     this.props.getOrganizationReposData(orgName);
+  }
+
+  handleRestartClick()
+  {
+    this.setState({textFieldValue: ''});
+    this.props.onRestartClick();
   }
 
   render() {
@@ -41,22 +50,23 @@ class SearchForm extends React.Component {
 
     return (
       <div>
-        <AppBar showMenuIconButton={false}>
+        <AppBar showMenuIconButton={false}
+          style={styles.bar}>
           <ToolbarTitle text="GitHub Organization Explorer"
-          style={styles.title}/>
+            style={styles.title}/>
         </AppBar>
         <br></br>
         <TextField
-          value={this.props.organizationName}
-          onChange={(event) => {this.props.handleOrganizationNameChange(event.target.value)}}
+          value={this.state.textFieldValue}
+          onChange={(event) => {this.setState({textFieldValue: event.target.value})}}
           hintText="Enter Organization Name"
         />
 
         <RaisedButton label="Search Repos" secondary={true} style={styles.button}
-          onClick ={()=>this.handleSearchClick(this.props.organizationName)}
+          onClick ={()=>this.handleSearchClick(this.state.textFieldValue)}
       />
         <RaisedButton label="Restart" primary={true} style={styles.button}
-          onClick={() => this.props.onRestartClick()} />
+          onClick={() => this.handleRestartClick()} />
       </div>
     )
   }
