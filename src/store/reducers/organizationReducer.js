@@ -19,8 +19,13 @@ function fetchOrganizationReposDataFailed(state) {
 }
 
 function setOrganizationReposData(state, reposData) {
+  let sortedData = reposData;
+  sortedData.sort(function(obj1, obj2) {
+	// Ascending: first age less than the previous
+	return obj1.forks - obj2.fork;
+});
   return updateObject(state, {
-    'repoData': reposData,
+    'repoData': sortedData,
     'loading': false});
 }
 

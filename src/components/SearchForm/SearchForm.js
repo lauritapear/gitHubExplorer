@@ -27,11 +27,18 @@ const styles = {
   }
 }
 class SearchForm extends React.Component {
+  handleSearchClick(orgName)
+  {
+    this.props.onRestartRepoCommitsData();
+    this.props.onRestartOrganizationData();
+    this.props.getOrganizationReposData(orgName);
+  }
+
   render() {
     let diableCommitsButton = true;
     //Only allow users to Search commits if repos have been found
     this.props.repoData.length >0
-      ? diableCommitsButton = false
+      ? diableCommitsButton = true
       : diableCommitsButton
 
     return (
@@ -47,14 +54,15 @@ class SearchForm extends React.Component {
           onChange={(event) => {this.props.handleOrganizationNameChange(event.target.value)}}
           hintText="Enter Organization Name"
         />
-        <br></br>
 
         <RaisedButton label="Search Repos" secondary={true} style={styles.button}
-        onClick={() => this.props.getOrganizationReposData(this.props.organizationName)} />
-        <RaisedButton label="Search Commits" secondary={true} style={styles.button}
+          onClick ={()=>this.handleSearchClick(this.props.organizationName)}
+        // onClick={() => this.props.getOrganizationReposData(this.props.organizationName)}
+      />
+        {/* <RaisedButton label="Search Commits" secondary={true} style={styles.button}
         disabled={diableCommitsButton}
         onClick={() => this.props.getRepoCommitsData(this.props.organizationName,this.props.repoName)}
-      />
+      /> */}
         <RaisedButton label="Restart" primary={true} style={styles.button}
           onClick={() => this.props.onRestartClick()} />
       </div>

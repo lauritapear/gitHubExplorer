@@ -56,6 +56,11 @@ const styles = {
 }
 
 class App extends Component {
+  handleOnVisible()
+  {
+    console.log("well hello");
+  }
+
   render() {
     let visible = false;
     let sizeOfDock= 0.4;
@@ -71,9 +76,12 @@ class App extends Component {
           <RepoTable {...this.props}/>
 
         </div>
-        <Dock position='right'  size = {sizeOfDock} isVisible={visible} zIndex={0} dimMode='none' dockStyle={{top: '8%'}}>
+        <Dock position='right'  size = {sizeOfDock} isVisible={visible}
+          zIndex={0} dimMode='none' dockStyle={{top: '8%'}}
+          onVisibleChange={this.handleOnVisible()}
+          >
           <div style={[styles.dockContent]}>
-              
+
             <CommitsTable {...this.props}/>
           </div>
         </Dock>
