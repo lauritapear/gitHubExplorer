@@ -34,7 +34,7 @@ class CommitsTable extends React.Component {
             <ListItem key={index} leftAvatar={< Avatar src = {
               commit.author
                 ? commit.author['avatar_url']
-                : "../../../placeHolder.png"
+                : require("../../images/placeHolder.png")
             } />} primaryText={commit.commit['message']} secondaryText={commit.commit.author['name']}/>
           ))}
 

@@ -19,7 +19,7 @@ function fetchOrganizationReposDataFailed(state) {
 }
 
 function compareForks(a, b) {
-  return a.forks_count - b.forks_count;
+  return b.forks_count - a.forks_count;
 }
 
 function setOrganizationReposData(state, reposData) {
