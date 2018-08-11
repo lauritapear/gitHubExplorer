@@ -9,3 +9,4 @@ To run Application, first download/clone repo and then run the following command
 To run Tests, please type the following command:
 - ```brew install watch man``` if you dont have brew please intall it first https://brew.sh/
 - ```npm test```
+- then type a to run all tests
