@@ -29,7 +29,7 @@ class SearchForm extends React.Component {
   handleKeyDown(event)
   {
     let enterKeyCode = 13;
-    if (event.keyCode == enterKeyCode) {
+    if (event.keyCode === enterKeyCode) {
       this.props.onRestartRepoCommitsData();
       this.props.onRestartOrganizationData();
       this.props.handleOrganizationNameChange(this.state.textFieldValue);

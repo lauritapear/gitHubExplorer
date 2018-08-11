@@ -59,7 +59,7 @@ class RepoTable extends React.Component {
           </TableHeader>
           <TableBody
             displayRowCheckbox={false}
-            deselectOnClickAway={false}
+            deselectOnClickaway={true}
             showRowHover={true}
             stripedRows={true}
           >
