@@ -26,6 +26,16 @@ class SearchForm extends React.Component {
   state = {
     textFieldValue: ''
   };
+  handleKeyDown(event)
+  {
+    let enterKeyCode = 13;
+    if (event.keyCode == enterKeyCode) {
+      this.props.onRestartRepoCommitsData();
+      this.props.onRestartOrganizationData();
+      this.props.handleOrganizationNameChange(this.state.textFieldValue);
+      this.props.getOrganizationReposData(this.state.textFieldValue);
+    }
+  }
 
   handleSearchClick(orgName)
   {
@@ -53,6 +63,7 @@ class SearchForm extends React.Component {
         <TextField
           value={this.state.textFieldValue}
           onChange={(event) => {this.setState({textFieldValue: event.target.value})}}
+          onKeyDown = {(event)=>this.handleKeyDown(event)}
           hintText="Enter Organization Name"
         />
 

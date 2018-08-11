@@ -48,18 +48,18 @@ class RepoTable extends React.Component {
         >
           <TableHeader displaySelectAll={false}>
             <TableRow >
-              <TableHeaderColumn colSpan="2" tooltip="Super Header" style={{textAlign: 'left'}}>
+              <TableHeaderColumn colSpan="2" tooltip="Table of repos" style={{textAlign: 'left'}}>
                 List of {this.props.organizationName} repos organized by ascending number of Forks
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
               <TableHeaderColumn tooltip="The Name of the repo">Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The number repo of forks"># Forks</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The number of repo forks"># Forks</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
             displayRowCheckbox={false}
-            deselectOnClickaway={false}
+            deselectOnClickAway={false}
             showRowHover={true}
             stripedRows={true}
           >
