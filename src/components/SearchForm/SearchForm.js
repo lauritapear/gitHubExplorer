@@ -19,7 +19,12 @@ const styles = {
 
   title: {
     color: "white",
-    fontSize: "28px",
+    fontSize: "22px",
+  },
+
+  buttons:{
+    display: 'flex',
+    flexFlow: 'row wrap'
   }
 }
 class SearchForm extends React.Component {
@@ -67,11 +72,14 @@ class SearchForm extends React.Component {
           hintText="Enter Organization Name"
         />
 
-        <RaisedButton label="Search Repos" secondary={true} style={styles.button}
-          onClick ={()=>this.handleSearchClick(this.state.textFieldValue)}
-      />
-        <RaisedButton label="Cancel" primary={true} style={styles.button}
-          onClick={() => this.handleRestartClick()} />
+        <div>
+          <RaisedButton label="Search Repos" secondary={true} style={styles.button}
+            onClick ={()=>this.handleSearchClick(this.state.textFieldValue)}
+          />
+          <RaisedButton label="Cancel" primary={true} style={styles.button}
+            onClick={() => this.handleRestartClick()} />
+        </div>
+
       </div>
     )
   }
